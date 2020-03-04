@@ -5,8 +5,10 @@ Production
 """
 
 import os
+import sys
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, BASE_DIR + '/apps')
 
 ### Server Configuration ########################################### 
 
@@ -64,14 +66,29 @@ TEMPLATES = [
 
 
 INSTALLED_APPS = [
+    # Django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # External
+    'rest_framework',
+    # Paint
+    'authentication',
+    'batch',
+    'history'
 ]
 
-### Auth ###
+### Django Rest Framework ###
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [], # TODO
+    'DEFAULT_THROTTLE_CLASSES': [] # TODO
+}
+
+
+### Django.Contrib.Auth ###
 
 AUTH_PASSWORD_VALIDATORS = [
     {
