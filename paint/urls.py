@@ -13,7 +13,7 @@ from paint.apps.history.urls import v2 as history_v2
 
 # For backwards compatibility
 v1 = [
-    path('batch/', include(batch_v1))
+    path('', include(batch_v1))
 ]
 
 v2 = [

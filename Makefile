@@ -20,6 +20,15 @@ install: venv
 	)
 	@echo "...Done."
 
+### Testing #########################################
+
+test:
+	@echo "Running tests..."
+	@( \
+		source venv/bin/activate; \
+		manage.py test; \
+	)
+
 ### Running The API #################################
 
 runserver:
