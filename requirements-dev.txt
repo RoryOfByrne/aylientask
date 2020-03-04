@@ -1,0 +1,5 @@
+-e .
+django
+django-stubs # type checking
+django-rest-framework
+djangorestframework-stubs # type checking
