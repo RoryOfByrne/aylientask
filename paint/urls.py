@@ -1,21 +1,29 @@
-"""paint URL Configuration
+"""Paint URLs
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+The old API is accessible via /v1/, while the new API (including history 
+and authentication) is at /v2/.abspath
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+
+from paint.apps.authentication.urls import v2 as auth_v2
+from paint.apps.batch.urls import v1 as batch_v1
+from paint.apps.batch.urls import v2 as batch_v2
+from paint.apps.history.urls import v2 as history_v2
+
+# For backwards compatibility
+v1 = [
+    path('batch/', include(batch_v1))
+]
+
+v2 = [
+    path('auth/', include(auth_v2)),
+    path('batch/', include(batch_v2)),
+    path('history/', include(history_v2)),
+]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('v1/', include(v1)),
+    path('v2/', include(v2))
 ]
