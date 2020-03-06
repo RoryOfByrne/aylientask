@@ -31,6 +31,6 @@ test:
 
 ### Running The API #################################
 
-runserver:
+run:
 	@echo "Running local server..."
 	@manage.py runserver

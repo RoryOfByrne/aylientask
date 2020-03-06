@@ -67,7 +67,6 @@ TEMPLATES = [
 
 INSTALLED_APPS = [
     # Django
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -75,9 +74,9 @@ INSTALLED_APPS = [
     # External
     'rest_framework',
     # Paint
-    'authentication',
-    'batch',
-    'history'
+    'paint.apps.authentication',
+    'paint.apps.batch',
+    'paint.apps.history'
 ]
 
 ### Django Rest Framework ###
@@ -88,7 +87,9 @@ REST_FRAMEWORK = {
 }
 
 
-### Django.Contrib.Auth ###
+### Authentication ###
+
+AUTH_USER_MODEL = 'authentication.User'
 
 AUTH_PASSWORD_VALIDATORS = [
     {

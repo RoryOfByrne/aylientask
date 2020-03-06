@@ -23,7 +23,6 @@ v2 = [
 ]
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('v1/', include(v1)),
     path('v2/', include(v2))
 ]
