@@ -12,5 +12,5 @@ class BatchV1Test(TestCase):
     def test_returns_a_well_formed_batch_when_correct_input_is_given(self):
         """When given valid requirements, the API should return a well-formed batch"""
         c: Client = Client()
-        resp: Response = c.get('/v1/?input={%22colors%22:5,%22customers%22:3,%22demands%22:[[1,1,1],[2,1,0,2,0],[1,5,0]]} ')
+        resp: Response = c.get('/v1/?input={%22colors%22:5,%22customers%22:3,%22demands%22:[[1,1,1],[2,1,0,2,0],[1,5,0]]}')
         self.assertEqual(resp.json(), '1 0 0 0 0')
