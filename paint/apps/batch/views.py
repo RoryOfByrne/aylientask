@@ -19,6 +19,7 @@ class BatchV1(APIView):
     This exists for backwards-compatibility
     """
     permission_classes = [permissions.AllowAny] # backwards compatibility
+    throttle_classes = [] # backwards-compatibility - we can remove this to re-enable throttling here
 
     def get(self, request: Request) -> Response:
         """Generate a response using the solver lib"""
