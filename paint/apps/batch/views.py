@@ -1,10 +1,11 @@
 import json
 from typing import Optional
 
+from rest_framework import permissions
+from rest_framework.exceptions import ParseError
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.exceptions import ParseError
 
 from paint.apps.batch.types import V1BatchParameters
 from paint.util.api import get_query_param
@@ -17,6 +18,7 @@ class BatchV1(APIView):
     
     This exists for backwards-compatibility
     """
+    permission_classes = [permissions.AllowAny] # backwards compatibility
 
     def get(self, request: Request) -> Response:
         """Generate a response using the solver lib"""
