@@ -82,7 +82,8 @@ INSTALLED_APPS = [
 ### Django Rest Framework ###
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [], # TODO
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.BasicAuthentication'],
+    'DEFAULT_PERMISSION_CLASSES': [],
     'DEFAULT_THROTTLE_CLASSES': [] # TODO
 }
 

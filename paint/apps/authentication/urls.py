@@ -1,5 +1,7 @@
 from django.urls import path
 
-v2 = [
+from paint.apps.authentication.views import CreateAccount
 
+v2 = [
+    path('register/', CreateAccount.as_view(), name='v2-authentication-register')
 ]
